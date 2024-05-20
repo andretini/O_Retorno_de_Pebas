@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdx6s86cb82sb"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_gbm06"]
+[ext_resource type="Texture2D" uid="uid://cank3sl3kc513" path="res://sprites/characters/player.png" id="2_s1566"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f2x1"]
+size = Vector2(13, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4unl"]
+atlas = ExtResource("2_s1566")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlrwx"]
+atlas = ExtResource("2_s1566")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pc8f"]
+atlas = ExtResource("2_s1566")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56a8q"]
+atlas = ExtResource("2_s1566")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2om7u"]
+atlas = ExtResource("2_s1566")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajslo"]
+atlas = ExtResource("2_s1566")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6wnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4unl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlrwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pc8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56a8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2om7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajslo")
+}],
+"loop": true,
+"name": &"IDLE_FRONT",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gbm06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_0f2x1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_s6wnp")
+animation = &"IDLE_FRONT"
+autoplay = "IDLE_FRONT"
