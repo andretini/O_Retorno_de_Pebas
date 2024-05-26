@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://y0h4fii5byuj"]
+
+[ext_resource type="PackedScene" uid="uid://cdx6s86cb82sb" path="res://scenes/Entitys/character.tscn" id="1_lrqvr"]
+[ext_resource type="PackedScene" uid="uid://skl5h5uvsrgu" path="res://scenes/Attacks/projtectile_spawner.tscn" id="2_utt2o"]
+
+[node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_lrqvr")]
+position = Vector2(157, 96)
+scale = Vector2(1, 0.957998)
+
+[node name="projectileSpawner" parent="." instance=ExtResource("2_utt2o")]
+position = Vector2(89, 10)
+
+[node name="projectileSpawner2" parent="." instance=ExtResource("2_utt2o")]
+position = Vector2(137, 10)
+
+[node name="projectileSpawner3" parent="." instance=ExtResource("2_utt2o")]
+position = Vector2(182, 10)
