@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="O retorno de Peba's"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scenes/Attacks/AttackPattern1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
