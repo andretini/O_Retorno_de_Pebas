@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export_category("Variables")
 @export var _move_speed: float = 64.0
+var vida: int = 30
 
 func _physics_process(delta: float)-> void:
 	_move()

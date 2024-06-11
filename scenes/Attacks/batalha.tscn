@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2vglbh2v2rlw"]
+
+[ext_resource type="Script" path="res://scripts/batalha.gd" id="1_qc23d"]
+[ext_resource type="Texture2D" uid="uid://0w11hv0mb3bj" path="res://sprites/characters/skeleton.png" id="2_a6yhi"]
+[ext_resource type="PackedScene" uid="uid://cdx6s86cb82sb" path="res://scenes/Entitys/character.tscn" id="3_rasla"]
+[ext_resource type="Script" path="res://scripts/Arena.gd" id="3_uyx27"]
+[ext_resource type="PackedScene" uid="uid://ewlr1t35d4k5" path="res://scenes/Attacks/menuAtaques.tscn" id="4_lp472"]
+[ext_resource type="Script" path="res://scripts/Timer.gd" id="6_m30yf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m1fi"]
+size = Vector2(12, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pwqg"]
+size = Vector2(144.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxyek"]
+size = Vector2(12, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atrg5"]
+size = Vector2(145, 12)
+
+[node name="Batalha" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qc23d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.0858438, 0.167738, 0.229432, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = -1.0
+offset_right = 210.0
+offset_bottom = 72.0
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+value = 1.31
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(58, 50)
+scale = Vector2(2.9, 2.9)
+texture = ExtResource("2_a6yhi")
+region_enabled = true
+region_rect = Rect2(14.8362, 22.567, 15.6752, 15.6752)
+
+[node name="Arena" type="Node2D" parent="."]
+script = ExtResource("3_uyx27")
+
+[node name="CharacterBody2D" parent="Arena" instance=ExtResource("3_rasla")]
+position = Vector2(159, 131)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Arena"]
+position = Vector2(-8, -1)
+collision_mask = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Arena/StaticBody2D"]
+offset_left = 95.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 176.0
+
+[node name="ColorRect3" type="ColorRect" parent="Arena/StaticBody2D"]
+offset_left = 232.0
+offset_top = 84.0
+offset_right = 236.0
+offset_bottom = 176.0
+
+[node name="ColorRect4" type="ColorRect" parent="Arena/StaticBody2D"]
+offset_left = 95.0
+offset_top = 84.0
+offset_right = 99.0
+offset_bottom = 225.0
+rotation = -1.5708
+
+[node name="ColorRect5" type="ColorRect" parent="Arena/StaticBody2D"]
+offset_left = 95.0
+offset_top = 180.0
+offset_right = 99.0
+offset_bottom = 321.0
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/StaticBody2D"]
+position = Vector2(93, 130)
+shape = SubResource("RectangleShape2D_0m1fi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Arena/StaticBody2D"]
+position = Vector2(171.25, 92)
+shape = SubResource("RectangleShape2D_8pwqg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Arena/StaticBody2D"]
+position = Vector2(238, 144)
+shape = SubResource("RectangleShape2D_pxyek")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Arena/StaticBody2D"]
+position = Vector2(159.5, 182)
+shape = SubResource("RectangleShape2D_atrg5")
+
+[node name="PanelContainer" parent="." instance=ExtResource("4_lp472")]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+script = ExtResource("6_m30yf")
+
+[connection signal="spawn" from="." to="Arena" method="_on_batalha_spawn"]
+[connection signal="atacar" from="PanelContainer" to="." method="_on_panel_container_atacar"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://drtgvsa716wbi"]
+[gd_scene load_steps=7 format=3 uid="uid://drtgvsa716wbi"]
 
+[ext_resource type="Script" path="res://scenes/Places/GameData.gd" id="1_6r1k4"]
 [ext_resource type="Texture2D" uid="uid://bsfqrwntvyfxr" path="res://sprites/PebasWorldSpriteSheet.png" id="1_y6kr2"]
 [ext_resource type="PackedScene" uid="uid://cdx6s86cb82sb" path="res://scenes/Entitys/character.tscn" id="2_7b7gm"]
+[ext_resource type="Script" path="res://scenes/Places/Vida.gd" id="3_7uku7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xebx"]
 texture = ExtResource("1_y6kr2")
@@ -1612,6 +1614,7 @@ physics_layer_0/collision_mask = 4
 sources/2 = SubResource("TileSetAtlasSource_6xebx")
 
 [node name="MapaJogo" type="Node2D"]
+script = ExtResource("1_6r1k4")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.075, 0.075)
@@ -1625,3 +1628,10 @@ layer_1/tile_data = PackedInt32Array(196616, 262146, 28, 196613, 131074, 28)
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_7b7gm")]
 position = Vector2(57, 61)
 collision_mask = 7
+
+[node name="Vida" type="Label" parent="."]
+offset_left = 262.0
+offset_top = 25.0
+offset_right = 302.0
+offset_bottom = 48.0
+script = ExtResource("3_7uku7")

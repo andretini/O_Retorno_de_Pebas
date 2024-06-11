@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://skl5h5uvsrgu"]
 
-[ext_resource type="Script" path="res://scripts/projtectile_spawner.gd" id="1_q27yj"]
+[ext_resource type="Script" path="res://scripts/projtectile_spawner.gd" id="1_nfa4h"]
 
 [sub_resource type="Curve2D" id="Curve2D_kc3qc"]
 _data = {
@@ -10,7 +10,7 @@ point_count = 9
 
 [node name="projectileSpawner" type="Node2D"]
 scale = Vector2(1.00328, 1.05324)
-script = ExtResource("1_q27yj")
+script = ExtResource("1_nfa4h")
 
 [node name="movingPath" type="Path2D" parent="."]
 position = Vector2(1.99347, 0)

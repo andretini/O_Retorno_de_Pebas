@@ -14,7 +14,7 @@ func _ready():
 
 func _process(delta):
 	if spawn_duration > 0 and spawn_cooldown <= 0:
-		spawn_cooldown = 0.1375
+		spawn_cooldown = 0.3
 		shoot()
 		
 	spawn_cooldown -= 1 * delta
