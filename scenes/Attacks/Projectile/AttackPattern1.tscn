@@ -5,10 +5,10 @@
 [node name="AttackPattern" type="Node2D"]
 
 [node name="projectileSpawner" parent="." instance=ExtResource("2_utt2o")]
-position = Vector2(89, 10)
+position = Vector2(112, 104)
 
 [node name="projectileSpawner2" parent="." instance=ExtResource("2_utt2o")]
-position = Vector2(137, 10)
+position = Vector2(160, 104)
 
 [node name="projectileSpawner3" parent="." instance=ExtResource("2_utt2o")]
-position = Vector2(182, 10)
+position = Vector2(205, 104)
