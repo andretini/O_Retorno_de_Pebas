@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdx6s86cb82sb"]
+[gd_scene load_steps=13 format=3 uid="uid://cdx6s86cb82sb"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hpfe2"]
 [ext_resource type="Texture2D" uid="uid://cank3sl3kc513" path="res://sprites/characters/player.png" id="2_s1566"]
@@ -56,6 +56,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n58wo"]
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wf1s4"]
+radius = 23.0217
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
@@ -70,3 +76,21 @@ position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_s6wnp")
 animation = &"IDLE_FRONT"
 autoplay = "IDLE_FRONT"
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_n58wo")
+
+[node name="Area2DDialogue" type="Area2D" parent="."]
+
+[node name="CollisionShape2DDialogue" type="CollisionShape2D" parent="Area2DDialogue"]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_wf1s4")
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="Area2DDialogue" to="." method="_on_area_2d_dialogue_body_entered"]
+[connection signal="body_exited" from="Area2DDialogue" to="." method="_on_area_2d_dialogue_body_exited"]

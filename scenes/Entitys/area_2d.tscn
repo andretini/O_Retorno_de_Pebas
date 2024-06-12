@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b08gelmdrpvm6"]
+
+[ext_resource type="Script" path="res://scripts/area_2d.gd" id="1_605iu"]
+[ext_resource type="Texture2D" uid="uid://bsfqrwntvyfxr" path="res://sprites/PebasWorldSpriteSheet.png" id="1_lioja"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1buy"]
+atlas = ExtResource("1_lioja")
+region = Rect2(3071, 5854, 257, 303)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oprt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1buy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2kqw"]
+radius = 2.0
+height = 12.0
+
+[node name="YellowKey" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_605iu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, -12)
+scale = Vector2(0.0661479, 0.0750825)
+sprite_frames = SubResource("SpriteFrames_oprt2")
+autoplay = "default"
+frame_progress = 0.621422
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, -10)
+shape = SubResource("CapsuleShape2D_m2kqw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

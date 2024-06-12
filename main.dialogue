@@ -1,0 +1,29 @@
+~ start
+
+Peba: Olá aventureiro(a)!
+- Oi... Quem é você?
+	Peba: Prazer! Meu nome é Peba. Sou um homem sábio.
+	Onde nós estamos?
+	Peba: Você não se lembra?
+	Peba: Estamos em uma dungeon. O tesouro desse lugar é um livro que possui muito conhecimento.
+	Peba: A saída fica na sala do tesouro. Você poderia me ajudar a encontrá-lo?
+	- Sim.
+		Peba: Dizem que para abrir a sala, precisamos de 3 chaves. Uma vermelha, uma verde e uma amarela.
+		Peba: Alguma dúvida?
+		- Sim. 
+			O que devo fazer?
+			Peba: Encontre as 3 chaves para achar a saída. 			
+			=> END
+		- Não.
+		=> END
+	- Claro!
+		Peba: Dizem que para abrir a sala, precisamos de 3 chaves. Uma vermelha, uma verde e uma amarela.
+		Peba: Alguma dúvida?
+		- Sim. 
+			O que devo fazer?
+			Peba: Encontre as 3 chaves para achar a saída.
+			=> END
+		- Não. 
+		=> END
+- Sair
+=> END
