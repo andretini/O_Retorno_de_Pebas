@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var _move_speed: float = 64.0
 var vida: int = 30
 
+func _ready():
+	position = Vector2(320/2, 180/2)
+
 func _physics_process(delta: float)-> void:
 	_move()
 

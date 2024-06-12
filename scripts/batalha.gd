@@ -34,9 +34,15 @@ func toggleBattle():
 		panel_container.visible = true
 
 
+
 func _on_panel_container_atacar():
 	toggleBattle()
+
+func _on_panel_container_fugir():	
+	get_tree().change_scene_to_packed(preload("res://scenes/Places/mapa_jogo.tscn"))
 
 
 func _on_timer_timeout():
 	toggleBattle()
+
+

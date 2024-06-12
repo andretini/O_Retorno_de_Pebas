@@ -63,3 +63,4 @@ menu_parent_path = NodePath("../PanelContainer/MarginContainer/HBoxContainer")
 cursor_offset = Vector2(10, 3)
 
 [connection signal="cursor_selected" from="PanelContainer/MarginContainer/HBoxContainer/Atacar" to="." method="_on_cursor_selected"]
+[connection signal="cursor_selected" from="PanelContainer/MarginContainer/HBoxContainer/Fugir" to="." method="_on_fugir_cursor_selected"]
