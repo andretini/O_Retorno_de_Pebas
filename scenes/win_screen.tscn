@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkdg8gwqo7oi"]
+
+[ext_resource type="Script" path="res://scenes/Win.gd" id="1_gfyq6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5umpm"]
+font_size = 24
+
+[node name="WinScreen" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 53.0
+offset_right = 207.0
+offset_bottom = 76.0
+text = "Voce Ganhou"
+
+[node name="Label2" type="Label" parent="Panel"]
+offset_left = 100.0
+offset_top = 20.0
+offset_right = 209.0
+offset_bottom = 54.0
+text = "Parabéns"
+label_settings = SubResource("LabelSettings_5umpm")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 114.0
+offset_top = 92.0
+offset_right = 200.0
+offset_bottom = 123.0
+text = "Continuar"
+script = ExtResource("1_gfyq6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2vglbh2v2rlw"]
+[gd_scene load_steps=12 format=3 uid="uid://b2vglbh2v2rlw"]
 
 [ext_resource type="Script" path="res://scripts/batalha.gd" id="1_qc23d"]
 [ext_resource type="Texture2D" uid="uid://0w11hv0mb3bj" path="res://sprites/characters/skeleton.png" id="2_a6yhi"]
+[ext_resource type="Script" path="res://scenes/Attacks/Pebas.gd" id="2_spwmo"]
 [ext_resource type="Script" path="res://scripts/Arena.gd" id="3_uyx27"]
+[ext_resource type="PackedScene" uid="uid://cdx6s86cb82sb" path="res://scenes/Entitys/character.tscn" id="4_5d4u1"]
 [ext_resource type="PackedScene" uid="uid://ewlr1t35d4k5" path="res://scenes/Attacks/menuAtaques.tscn" id="4_lp472"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="6_m30yf"]
 
@@ -40,12 +42,18 @@ offset_top = -1.0
 offset_right = 218.0
 offset_bottom = 72.0
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Pebas" type="Node" parent="VBoxContainer"]
+script = ExtResource("2_spwmo")
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Pebas"]
+offset_left = 100.0
+offset_top = -1.0
+offset_right = 218.0
+offset_bottom = 26.0
 value = 1.31
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(58, 50)
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Pebas"]
+position = Vector2(158, 49)
 scale = Vector2(2.9, 2.9)
 texture = ExtResource("2_a6yhi")
 region_enabled = true
@@ -100,6 +108,8 @@ shape = SubResource("RectangleShape2D_pxyek")
 position = Vector2(159.5, 182)
 shape = SubResource("RectangleShape2D_atrg5")
 
+[node name="CharacterBody2D" parent="Arena" instance=ExtResource("4_5d4u1")]
+
 [node name="PanelContainer" parent="." instance=ExtResource("4_lp472")]
 
 [node name="Timer" type="Timer" parent="."]
@@ -110,5 +120,6 @@ script = ExtResource("6_m30yf")
 
 [connection signal="spawn" from="." to="Arena" method="_on_batalha_spawn"]
 [connection signal="atacar" from="PanelContainer" to="." method="_on_panel_container_atacar"]
+[connection signal="atacar" from="PanelContainer" to="VBoxContainer/Pebas" method="_on_panel_container_atacar"]
 [connection signal="fugir" from="PanelContainer" to="." method="_on_panel_container_fugir"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

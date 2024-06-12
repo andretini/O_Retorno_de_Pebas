@@ -5,7 +5,13 @@ extends CharacterBody2D
 var vida: int = 30
 
 func _ready():
-	position = Vector2(320/2, 180/2)
+	if Game.map_position != null:
+		if Game.inBattle == true:
+			position = Vector2(150, 100)
+		else:
+			position = Game.map_position
+	else:
+		position = Vector2(150, 100)
 
 func _physics_process(delta: float)-> void:
 	_move()

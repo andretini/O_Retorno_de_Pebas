@@ -33,13 +33,16 @@ func toggleBattle():
 		panel_container.process_mode = Node.PROCESS_MODE_PAUSABLE
 		panel_container.visible = true
 
-
+func _process(delta):
+	if Game.player_health <= 0:
+		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
 func _on_panel_container_atacar():
 	toggleBattle()
 
 func _on_panel_container_fugir():	
-	get_tree().change_scene_to_packed(preload("res://scenes/Places/mapa_jogo.tscn"))
+	Game.inBattle = false
+	get_tree().change_scene_to_file("res://scenes/Places/mapa_jogo.tscn")
 
 
 func _on_timer_timeout():
