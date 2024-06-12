@@ -113,15 +113,6 @@ position = Vector2(157, 139)
 
 [node name="PanelContainer" parent="." instance=ExtResource("4_lp472")]
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 146.0
-offset_right = 307.0
-offset_bottom = 173.0
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 10.0

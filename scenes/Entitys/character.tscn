@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hpfe2"]
 [ext_resource type="Texture2D" uid="uid://cank3sl3kc513" path="res://sprites/characters/player.png" id="2_s1566"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f2x1"]
-size = Vector2(13, 4)
+[sub_resource type="CircleShape2D" id="CircleShape2D_km8em"]
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4unl"]
 atlas = ExtResource("2_s1566")
@@ -62,8 +62,8 @@ collision_mask = 5
 script = ExtResource("1_hpfe2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1)
-shape = SubResource("RectangleShape2D_0f2x1")
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_km8em")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)

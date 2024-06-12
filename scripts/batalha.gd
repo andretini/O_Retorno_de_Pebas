@@ -6,6 +6,7 @@ var inBattle: bool = false
 @onready var panel_container: Node = $PanelContainer
 @onready var arena = $Arena
 @onready var timer = $Timer
+@onready var progress_bar = $ProgressBar
 
 signal spawn
 
@@ -16,7 +17,7 @@ func _ready():
 func toggleBattle():
 	inBattle = !inBattle
 	
-	if !inBattle:
+	if inBattle:
 		arena.process_mode = Node.PROCESS_MODE_PAUSABLE
 		arena.visible = true
 		timer.wait_time = 10
@@ -34,6 +35,8 @@ func toggleBattle():
 		panel_container.visible = true
 
 func _process(delta):
+	progress_bar.value = Game.player_health * 100 / 30
+	
 	if Game.player_health <= 0:
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
@@ -42,7 +45,7 @@ func _on_panel_container_atacar():
 
 func _on_panel_container_fugir():	
 	Game.inBattle = false
-	get_tree().change_scene_to_file("res://scenes/Places/mapa_jogo.tscn")
+	get_tree().change_scene_to_file("res://scenes/Places/mapa_jogo2.tscn")
 
 
 func _on_timer_timeout():

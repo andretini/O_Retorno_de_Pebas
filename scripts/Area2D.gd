@@ -8,7 +8,7 @@ var playerIn
 func _process(delta):
 	Game.map_position = character_body_2d.position
 	if playerIn:
-		if Input.is_action_just_pressed('select'):
+		if Input.is_action_just_pressed('select') and (Game.YellowKey and Game.RedKey and Game.GreenKey):
 			Game.inBattle = true
 			get_tree().change_scene_to_file("res://scenes/Attacks/batalha.tscn")
 
