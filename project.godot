@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Game="*res://scripts/Game.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalAudioStreamPlayer="*res://Audio/audio_stream_player.tscn"
 
 [display]
 
@@ -73,7 +74,7 @@ sprint={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://bossDoor.dialogue")
+locale/translations_pot_files=PackedStringArray("res://main.dialogue", "res://bossDoor.dialogue", "res://Replay.dialogue")
 
 [rendering]
 

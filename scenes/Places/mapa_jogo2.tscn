@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpsqynkaj2p1y" path="res://scenes/Entitys/red_key.tscn" id="4_ld41n"]
 [ext_resource type="PackedScene" uid="uid://c8h30sfkr5bcx" path="res://scenes/Entitys/green_key.tscn" id="5_ke0og"]
 [ext_resource type="Script" path="res://scripts/Area2D.gd" id="7_67nlb"]
-[ext_resource type="PackedScene" path="res://scenes/Entitys/pebas_npc.tscn" id="8_oyp8i"]
+[ext_resource type="PackedScene" uid="uid://c7blbopujpx1w" path="res://scenes/Entitys/pebas_npc.tscn" id="8_oyp8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xebx"]
 texture = ExtResource("1_y6kr2")

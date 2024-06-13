@@ -13,6 +13,7 @@ signal spawn
 func _ready():	
 		arena.process_mode = Node.PROCESS_MODE_DISABLED
 		arena.visible = false
+		GlobalAudioStreamPlayer.playBattleMusic()
 
 func toggleBattle():
 	inBattle = !inBattle

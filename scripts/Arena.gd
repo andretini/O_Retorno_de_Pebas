@@ -10,6 +10,11 @@ var attack_scene2 = preload("res://scenes/Attacks/Patterns/AttackPattern2.tscn")
 
 func _on_batalha_spawn():
 	character_body_2d.position =  Vector2(155, 150)
+	
+	var rng = RandomNumberGenerator.new()
+	count = rng.randi_range(0, 1)
+	print(count)
+	
 	if count == 0:
 		var attack_instance = attack_scene1.instantiate()
 		add_child(attack_instance)

@@ -133,6 +133,7 @@ radius = 26.0768
 radius = 26.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_hpfe2")

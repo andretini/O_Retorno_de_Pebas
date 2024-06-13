@@ -17,7 +17,8 @@ func _ready():
 		green_key.queue_free()
 	if Game.YellowKey:
 		yellow_key.queue_free()
-		
+	
+	GlobalAudioStreamPlayer.playBackgroundMusic()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

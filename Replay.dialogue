@@ -1,0 +1,9 @@
+~ start
+
+Game: Deseja enfrentar Peba's Novamente?
+
+- Sim
+	do get_tree().change_scene_to_file("res://scenes/Attacks/batalha.tscn")
+	=> END
+- Não
+	=> END

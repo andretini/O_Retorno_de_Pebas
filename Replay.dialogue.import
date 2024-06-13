@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cdnhyljokeddb"
+path="res://.godot/imported/Replay.dialogue-057ed6ca6775028f26458787f0c92576.tres"
+
+[deps]
+
+source_file="res://Replay.dialogue"
+dest_files=["res://.godot/imported/Replay.dialogue-057ed6ca6775028f26458787f0c92576.tres"]
+
+[params]
+
+defaults=true
