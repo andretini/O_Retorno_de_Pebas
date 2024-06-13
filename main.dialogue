@@ -1,0 +1,29 @@
+~ start
+
+Pebinha: Olá aventureiro(a)!
+- Oi... Quem é você?
+	Pebinha: Prazer! Meu nome é Pebinha. Sou um adimirador do Peba, um homem sábio.
+	Onde nós estamos?
+	Pebinha: Você não se lembra?
+	Pebinha: Estamos em uma dungeon. O tesouro desse lugar é um livro que possui muito conhecimento.
+	Pebinha: A saída fica na sala do tesouro. Você poderia me ajudar a encontrá-lo?
+	- Sim.
+		Pebinha: Dizem que para abrir a sala, precisamos de 3 chaves. Uma vermelha, uma verde e uma amarela.
+		Pebinha: Alguma dúvida?
+		- Sim. 
+			O que devo fazer?
+			Pebinha: Encontre as 3 chaves para achar a saída.
+			=> END
+		- Não.
+		=> END
+	- Claro!
+		Pebinha: Dizem que para abrir a sala, precisamos de 3 chaves. Uma vermelha, uma verde e uma amarela.
+		Pebinha: Alguma dúvida?
+		- Sim. 
+			O que devo fazer?
+			Pebinha: Encontre as 3 chaves para achar a saída.
+			=> END
+		- Não. 
+		=> END
+- Sair
+=> END

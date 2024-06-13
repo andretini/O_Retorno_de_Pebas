@@ -20,8 +20,6 @@ func toggleBattle():
 	if inBattle:
 		arena.process_mode = Node.PROCESS_MODE_PAUSABLE
 		arena.visible = true
-		timer.wait_time = 7
-		timer.start()
 		
 		emit_signal("spawn")
 		

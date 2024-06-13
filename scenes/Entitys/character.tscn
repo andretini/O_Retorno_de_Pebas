@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdx6s86cb82sb"]
+[gd_scene load_steps=20 format=3 uid="uid://cdx6s86cb82sb"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hpfe2"]
 [ext_resource type="Texture2D" uid="uid://b73lj5muxmwke" path="res://sprites/personagens.png" id="2_kyana"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_km8em"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twr1r"]
+radius = 8.0
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iayv5"]
 atlas = ExtResource("2_kyana")
@@ -125,14 +126,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi7pw"]
+radius = 26.0768
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a83hr"]
+radius = 26.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_hpfe2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_km8em")
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_twr1r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
@@ -140,3 +147,23 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_5de8a")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="Detection_Area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+visible = false
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_qi7pw")
+
+[node name="Area2DDialogue" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDialogue"]
+visible = false
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_a83hr")
+
+[connection signal="body_entered" from="Detection_Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="Area2DDialogue" to="." method="_on_area_2d_dialogue_body_entered"]
+[connection signal="body_exited" from="Area2DDialogue" to="." method="_on_area_2d_dialogue_body_exited"]

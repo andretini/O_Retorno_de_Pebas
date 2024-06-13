@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cginbl1rhpqfj"]
+
+[ext_resource type="Script" path="res://scripts/projtectile_spawner2.gd" id="1_6bjkb"]
+
+[sub_resource type="Curve2D" id="Curve2D_hdmxd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -194, -6, 0, 0, 0, 0, -155, -11, 0, 0, 0, 0, -109, -5, 0, 0, 0, 0, -73, -9, 0, 0, 0, 0, -37, -6, 0, 0, 0, 0, 4, -10, 0, 0, 0, 0, 39, -6, 0, 0, 0, 0, 80, -10, 0, 0, 0, 0, 124, -7, 0, 0, 0, 0, 161, -10, 0, 0, 0, 0, 193, -7)
+}
+point_count = 11
+
+[node name="ProjectileSpawner2" type="Node2D"]
+position = Vector2(158, 91)
+script = ExtResource("1_6bjkb")
+
+[node name="movingPath" type="Path2D" parent="."]
+position = Vector2(0, 20)
+curve = SubResource("Curve2D_hdmxd")
+
+[node name="movingPath2" type="Path2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(-1, 1)
+curve = SubResource("Curve2D_hdmxd")
