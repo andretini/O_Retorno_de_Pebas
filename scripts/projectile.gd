@@ -13,4 +13,5 @@ func _process(delta):
 		queue_free();
 
 func _on_body_entered(body):
-	queue_free()
+	Game.player_health -= 1
+	print(Game.player_health)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://drtgvsa716wbi"]
+[gd_scene load_steps=8 format=3 uid="uid://drtgvsa716wbi"]
 
+[ext_resource type="Script" path="res://scenes/Places/GameData.gd" id="1_3ypux"]
 [ext_resource type="Texture2D" uid="uid://bsfqrwntvyfxr" path="res://sprites/PebasWorldSpriteSheet.png" id="1_y6kr2"]
 [ext_resource type="PackedScene" uid="uid://cdx6s86cb82sb" path="res://scenes/Entitys/character.tscn" id="2_7b7gm"]
-[ext_resource type="Script" path="res://scripts/Area2D.gd" id="3_41xqq"]
+[ext_resource type="Script" path="res://scripts/Area2D.gd" id="3_g57qi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xebx"]
 texture = ExtResource("1_y6kr2")
@@ -1608,14 +1609,15 @@ texture_region_size = Vector2i(256, 256)
 
 [sub_resource type="TileSet" id="TileSet_xh8us"]
 tile_size = Vector2i(256, 256)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 4
 sources/2 = SubResource("TileSetAtlasSource_6xebx")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y4lug"]
-radius = 22.0227
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbbap"]
+radius = 26.0192
 
 [node name="MapaJogo" type="Node2D"]
+script = ExtResource("1_3ypux")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.075, 0.075)
@@ -1626,22 +1628,23 @@ layer_0/tile_data = PackedInt32Array(0, 1048578, 23, 65536, 1048578, 23, 131072,
 layer_1/name = "Decoration"
 layer_1/tile_data = PackedInt32Array(196616, 262146, 28, 196613, 131074, 28)
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_7b7gm")]
+position = Vector2(130, 94)
+collision_mask = 7
+
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(123, 6)
-collision_mask = 4
-script = ExtResource("3_41xqq")
+position = Vector2(112, 21)
+script = ExtResource("3_g57qi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_y4lug")
+shape = SubResource("CircleShape2D_rbbap")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -13)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("1_y6kr2")
 region_enabled = true
-region_rect = Rect2(2821.43, 7331.57, 246.131, 341.681)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_7b7gm")]
-position = Vector2(125, 104)
+region_rect = Rect2(2821.11, 7333.92, 245.98, 339.431)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcedvv5fdr6s3"]
+[gd_scene load_steps=7 format=3 uid="uid://dcedvv5fdr6s3"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_xgv2k"]
+[ext_resource type="Texture2D" uid="uid://bsfqrwntvyfxr" path="res://sprites/PebasWorldSpriteSheet.png" id="2_h2m1b"]
 
 [sub_resource type="Animation" id="Animation_g7dae"]
 length = 0.001
@@ -19,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2afg6"]
 resource_name = "moveAlongPath"
-length = 3.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,7 +28,7 @@ tracks/0/path = NodePath(".:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -40,7 +41,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7leqa"]
-size = Vector2(4, 4)
+size = Vector2(9.14286, 11.4286)
 
 [node name="path_follow" type="PathFollow2D"]
 progress = 274.833
@@ -57,14 +58,15 @@ scale = Vector2(0.875, 0.875)
 collision_mask = 4
 script = ExtResource("1_xgv2k")
 
-[node name="ColorRect" type="ColorRect" parent="projectile"]
-offset_top = -4.0
-offset_right = 4.0
-color = Color(0, 0.576471, 0.827451, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="projectile"]
-position = Vector2(2, -2)
+position = Vector2(0.137501, 0.114723)
 shape = SubResource("RectangleShape2D_7leqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="projectile"]
+position = Vector2(0.137501, 0.114714)
+scale = Vector2(0.0550752, 0.058)
+texture = ExtResource("2_h2m1b")
+region_enabled = true
+region_rect = Rect2(4138.11, 6684.95, 171.7, 201.241)
 
 [connection signal="body_entered" from="projectile" to="projectile" method="_on_body_entered"]

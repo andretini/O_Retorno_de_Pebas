@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfwxw0qkcf6lk"]
+
+[ext_resource type="PackedScene" uid="uid://cginbl1rhpqfj" path="res://scenes/Attacks/Projectile/projectile_spawner2.tscn" id="1_s4tm6"]
+
+[node name="AttackPattern2" type="Node2D"]
+
+[node name="ProjectileSpawner2" parent="." instance=ExtResource("1_s4tm6")]
+position = Vector2(153, 157)
+
+[node name="ProjectileSpawner3" parent="." instance=ExtResource("1_s4tm6")]
+position = Vector2(150, 106)

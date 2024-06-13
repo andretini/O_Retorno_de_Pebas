@@ -4,6 +4,7 @@ extends Node2D
 @onready var path = $movingPath
 @onready var path2 = $movingPath2
 
+
 var spawn_cooldown: float = 0
 var spawn_duration = 5
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	if spawn_duration > 0 and spawn_cooldown <= 0:
-		spawn_cooldown = 0.3
+		spawn_cooldown = 1
 		shoot()
 		
 	spawn_cooldown -= 1 * delta

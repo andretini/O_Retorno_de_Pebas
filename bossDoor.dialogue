@@ -1,0 +1,10 @@
+~ start
+
+Game: Você encontrou a sala do Tesouro
+Game: Tem certeza que deseja continuar?
+
+- Sim
+	do get_tree().change_scene_to_file("res://scenes/Attacks/batalha.tscn")
+	=> END
+- Não
+	=> END

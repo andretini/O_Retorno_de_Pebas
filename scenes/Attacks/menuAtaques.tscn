@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://ewlr1t35d4k5"]
+
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_5gpkq"]
+[ext_resource type="Script" path="res://scripts/menu_item.gd" id="1_wdsp5"]
+
+[sub_resource type="GDScript" id="GDScript_vy75g"]
+script/source = "extends Node
+
+signal atacar
+signal fugir
+
+
+func _on_cursor_selected():
+	emit_signal(\"atacar\")
+
+func _on_fugir_cursor_selected():
+	emit_signal(\"fugir\")
+"
+
+[node name="PanelContainer" type="Node2D"]
+script = SubResource("GDScript_vy75g")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 141.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 320.0
+offset_bottom = 37.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 39
+alignment = 1
+
+[node name="Atacar" type="Label" parent="Panel/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Atacar"
+script = ExtResource("1_wdsp5")
+
+[node name="Fugir" type="Label" parent="Panel/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fugir"
+script = ExtResource("1_wdsp5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="cursor" type="ColorRect" parent="."]
+offset_left = 13.0
+offset_top = 156.0
+offset_right = 22.0
+offset_bottom = 165.0
+script = ExtResource("1_5gpkq")
+menu_parent_path = NodePath("../Panel/PanelContainer/MarginContainer/HBoxContainer")
+cursor_offset = Vector2(10, 3)
+
+[connection signal="cursor_selected" from="Panel/PanelContainer/MarginContainer/HBoxContainer/Atacar" to="." method="_on_cursor_selected"]
+[connection signal="cursor_selected" from="Panel/PanelContainer/MarginContainer/HBoxContainer/Fugir" to="." method="_on_fugir_cursor_selected"]
